@@ -171,6 +171,82 @@ public:
         return slow;
     }
 
+    /*
+    
+        Floyd’s cycle-finding algorithm or the tortoise–hare method :
+        If a linked list has a cycle in itself, meaning tail of the list is pointed to another
+        node then it is for sure that that at some point in time fast and slow pointer will 
+        point to a same node. In other words, they are going to be same!
+    */
+
+    bool hasCycle(){
+        Node* fast = head;
+        Node* slow = head;
+        while(fast != NULL and fast -> next != NULL){
+
+            // This can not be done because at first both fast and slow are in head position
+            // Therefore, we need to do the operation first
+            // if(fast == slow){
+            //     return true;
+            // }
+
+            fast = fast -> next -> next;
+            slow = slow -> next;
+            if(fast == slow){
+                return true;
+            }
+        }
+        return fast;
+    }
+
+    /*
+    
+    If for some reason there exits a cycle in a linked list. In simple word, tail is connected to 
+    another node, it called that the linked list has a cycle in it.
+
+    At first we will check if there is a cycle in the linked list and then after making sure that the 
+    linked list has cycle and then we will set slow as head. We will traverse the list until both 
+    fast and slow meets, the meeting point will be the starting of the cycle.
+    
+    */
+
+    Node* detectTheCycle(){
+        Node* fast = head;
+        Node* slow = head;
+        bool ok = false;
+        while(fast != NULL and fast -> next != NULL){
+            fast = fast -> next -> next;
+            slow = slow -> next;
+            if(fast == slow){
+                slow = head;
+                ok = true;
+                break;
+            }
+        }
+
+        if(!ok){
+            return NULL;
+        }
+        while(fast != slow){
+            fast = fast -> next;
+            slow = slow -> next;
+        }
+        return slow;
+    }
+
+
+    void removeTheCycle(){
+        Node* slow = detectTheCycle();
+        if(slow == NULL){
+            return;
+        }
+        Node* fast = slow;
+        while(fast -> next != slow){
+            fast = fast -> next;
+        }
+        fast -> next = NULL;
+    }
+
     void printList(){
         Node* temp = head;
         while(temp != NULL){
@@ -205,5 +281,13 @@ int main(){
     cout << "Reversed Linked list : " << endl;
     l.printList();
     cout << "Middle Element : " << l.middleElement() -> val << endl;
+
+
+    if(l.hasCycle()){
+        cout << "The linked list has no cycle in it" << endl;
+    }else{
+        cout << "The linked list has loop in it" << endl;
+    }
+
     return 0;
 }
