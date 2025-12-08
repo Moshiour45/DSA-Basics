@@ -247,6 +247,26 @@ public:
         fast -> next = NULL;
     }
 
+    /*
+    
+    We are comparing node by node and after each choice we are choosing that how the list can
+    be merged in a sorted order!
+
+    */
+
+    Node* mergeTwoLists(Node* h1, Node* h2){
+        if(h1 == NULL or h2 == NULL){
+            return ((h1 == NULL) ? h2 : h1);
+        }
+        if(h1 -> val <= h2 -> val){
+            h1 -> next = mergeTwoLists(h1 -> next, h2);
+            return h1;
+        }else{
+            h2 -> next = mergeTwoLists(h1, h2 -> next);
+            return h2;
+        }
+    }
+
     void printList(){
         Node* temp = head;
         while(temp != NULL){
