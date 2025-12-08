@@ -153,6 +153,24 @@ public:
         head = prevNode; // head tail switching
     }
 
+    /*
+    
+    Floyd’s cycle-finding algorithm or the tortoise–hare method :
+    In this case, the fast pointer is taking 2 steps at a time and the slow pointer is taking 
+    one step at a time, making the slow pointer our mid. We are traversing until fast reaches 
+    NULL value!
+    
+    */
+    Node* middleElement(){
+        Node* fast = head;
+        Node* slow = head;
+        while(fast != NULL and fast -> next != NULL){
+            fast = fast -> next -> next;
+            slow = slow -> next;
+        }
+        return slow;
+    }
+
     void printList(){
         Node* temp = head;
         while(temp != NULL){
@@ -171,9 +189,10 @@ int main(){
     l.push_back(4);
     l.push_back(5);
     
-    l.insert(-1,3);
+    l.insert(6,4);
     l.insert(1, 0);
     l.printList();
+    l.push_back(7);
 
     int searchedIndex = l.search(100);
     if(searchedIndex != -1){
@@ -185,6 +204,6 @@ int main(){
     l.reverse();
     cout << "Reversed Linked list : " << endl;
     l.printList();
-    
+    cout << "Middle Element : " << l.middleElement() -> val << endl;
     return 0;
 }
