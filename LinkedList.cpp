@@ -100,15 +100,38 @@ public:
         int i = 0;
 
         /*
-            Traverse the  list until you reach inserted position - 1 and if the the position where I want to insert is out of the the lis then. We don't need to traverse!
+            Traverse the  list until you reach inserted position - 1 and 
+            if the the position where I want to insert is out of the the list then. 
+            We don't need to traverse and in that case it is just push_back() operation!
+
+
+            Here, we are only traversing until last element of the list because we want to
+            avoid unnessesary crash of the code! 
         */
-        while(i < idx - 1 and temp != NULL){
+        while(i < idx - 1 and temp -> next != NULL){
             temp = temp -> next;
             i++;
+        }
+        if(temp -> next == NULL){
+            push_back(val);
+            return;
         }
         Node* insertedNode = new Node(val);
         insertedNode -> next = temp -> next;
         temp -> next = insertedNode;
+    }
+
+    int search(int val){
+        Node* temp = head;
+        int idx = 0;
+        while(temp != NULL){
+            if(temp -> val == val){
+                return idx;
+            }
+            temp = temp -> next;
+            idx++; 
+        }
+        return -1;
     }
 
     void printList(){
@@ -132,6 +155,13 @@ int main(){
     l.insert(-1,3);
     l.insert(1, 0);
     l.printList();
+
+    int searchedIndex = l.search(100);
+    if(searchedIndex != -1){
+        cout << "Index : " << searchedIndex << endl;
+    }else{
+        cout << "Not Found in the list" << endl;
+    }
     
     return 0;
 }
