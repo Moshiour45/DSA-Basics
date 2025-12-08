@@ -134,6 +134,25 @@ public:
         return -1;
     }
 
+
+    void reverse(){
+        Node* currentNode = head;
+        Node* prevNode = NULL;
+        Node* nextNode = NULL;
+        
+        while(currentNode != NULL){
+            
+            nextNode = currentNode -> next; // pointing the node which is just next to the current node
+            currentNode -> next = prevNode; // Node pointer reversing
+            prevNode = currentNode; // Previous node shifted one step ahead
+            currentNode = nextNode; // Current node shifted one step ahead
+        }
+
+        // At the end of the loop, prevNode is pointing to the last element of the tail of the original list!
+        tail = head; // head tail switching
+        head = prevNode; // head tail switching
+    }
+
     void printList(){
         Node* temp = head;
         while(temp != NULL){
@@ -162,6 +181,10 @@ int main(){
     }else{
         cout << "Not Found in the list" << endl;
     }
+
+    l.reverse();
+    cout << "Reversed Linked list : " << endl;
+    l.printList();
     
     return 0;
 }
