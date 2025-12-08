@@ -98,7 +98,11 @@ public:
         }
         Node* temp = head;
         int i = 0;
-        while(i < idx - 1){
+
+        /*
+            Traverse the  list until you reach inserted position - 1 and if the the position where I want to insert is out of the the lis then. We don't need to traverse!
+        */
+        while(i < idx - 1 and temp != NULL){
             temp = temp -> next;
             i++;
         }
