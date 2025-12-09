@@ -267,6 +267,58 @@ public:
         }
     }
 
+
+    /*
+    
+        Here we have to make a deep copy of a linked list and after doing so we also have to make 
+        some random connections!
+
+        For better understanding of the question behold leetCode
+    
+    */
+
+    // Node* copyRandomList(Node* head){
+    //     // If the list is empty, we don't need a copy
+    //     if(head == NULL){
+    //         return NULL;
+    //     }
+
+    //     // This maps newNode with oldNodes
+    //     unordered_map<Node*, Node*> m;
+
+    //     // Memory for head is created
+    //     Node* newHead = new Node(head -> val);
+    //     // Staring traversing from the second node
+    //     Node* oldTemp = head -> next;
+    //     Node* newTemp = newHead;
+        
+    //     // head mapping is done
+    //     m[head] = newHead;
+
+    //     while(oldTemp != NULL){
+
+    //         // New node memory is creatd
+    //         Node* copyNode =  new Node(oldTemp -> val);
+    //         // mapping
+    //         m[oldTemp] = copyNode;
+
+    //         // connection is made
+    //         newTemp -> next = copyNode;
+    //         // move on
+    //         newTemp = newTemp -> next;
+    //         oldTemp = oldTemp -> next;
+    //     }
+    //     oldTemp = head;
+    //     newTemp = newHead;
+    //     while(oldTemp != NULL){
+    //         // Radom connections were made based on map
+    //         newTemp -> random = m[oldTemp -> random];
+    //         newTemp = newTemp -> next;
+    //         oldTemp = oldTemp -> next;
+    //     }
+    //     return newHead;
+    // }
+
     void printList(){
         Node* temp = head;
         while(temp != NULL){
