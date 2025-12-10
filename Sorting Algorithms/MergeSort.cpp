@@ -30,6 +30,7 @@ void merge(vector<int> &v, int l, int r, int mid){
 
     while(j < r){
         temp.push_back(v[j]);
+        j++;
     }
 
     for(int i = 0; i < temp.size(); i++){
