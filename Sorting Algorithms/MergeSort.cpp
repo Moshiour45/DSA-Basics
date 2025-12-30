@@ -23,16 +23,19 @@ void merge(vector<int> &v, int l, int r, int mid){
         }
     }
     
+    // Inserting the remaining element into the array
     while(i <= mid){
         temp.push_back(v[i]);
         i++;
     }
 
-    while(j < r){
+    // Inserting the remaining element into the array
+    while(j <= r){
         temp.push_back(v[j]);
         j++;
     }
 
+    // Copying it back to the main array
     for(int i = 0; i < temp.size(); i++){
         v[l + i] = temp[i];
     }
@@ -40,7 +43,8 @@ void merge(vector<int> &v, int l, int r, int mid){
 
 
 void mergeSort(vector<int> &v, int l, int r){
-    if(l == r){
+    // Base Case : when two pointers execedes one another we stop
+    if(l >= r){
         return;
     }
     int mid = l + (r - l)/2;
