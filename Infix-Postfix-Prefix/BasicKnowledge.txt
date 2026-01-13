@@ -1,0 +1,70 @@
+Prefix - Postfix - Prefix Notation
+
+Infix : 
+The way human eye sees mathematical equations is most likely to be known as Infix Notation. 
+For example : 
+1. (a + b) 
+2. ((a*x) + (b*y) + c)
+
+Postfix:
+The core idea behind postfix notation is to make calcutaions easier for CPU! For example:
+
+Expression : (a + b) 
+if hypothetically, CPU is trying to calculate the expression the way we write it infix, then it will firs look for 
+operators (+,-,*,/). In our case it will look for '+' once it gets '+' then it will look for operands, in our case a and b! The process is complicated! Why we are saying so?
+
+Let's say that the CPU is trying to look for operands using a pointer and we name that pointer to be - pointer
+
+                                                (a + b) 
+                                                   ^
+                                                   |
+                                                   |
+                                                  ptr
+now to actually perform the "+" operation we need two operands a and b! We can easily access b by performing ptr + 1 because ptr + 1 is loacted just after ptr! To get "a" we need to have another pointer! Let's assume we do have another pointer that is ptrBack;
+                                               ( a  + b ) 
+                                                 ^  ^ 
+                                                 |  |
+                                                 |  |
+                                           ptrBack  ptr
+As it appears the equation can be evaluated by using infix notation! Not really! let's take the second example -
+Expression : a*x + b*y + c
+
+In this case ptr, ptr + 1 and ptrBack will give wrong result! You can try it yourself!
+
+
+To avoid such complications, we are introduced with postfix notation! In case of postfix notation we put the operands first and the put operators:
+
+Postfix of (a + b) : ab+
+Postfix of (a*x + b*y + c) : ax*by*+c+
+
+Steps to connvert into postfix:
+1. According to the precedence apply braces into the expression. Keep the expression as it has braces already!
+2. According to the associativity of operators perform operation on an operator.
+3. Wrtie operands first and then put operator.
+4. Repeat same for all.
+
+Example Expression : a + b * c - d
+
+Step-1: Apply braces according to precedence
+((a + (b * c)) - d)
+
+Step-2: Apply associativity: So evaluate from left to right
+For (b * c) :
+bc*
+
+Therefore, the expression -
+((a + (bc*)) - d)
+((abc*+) - d)
+abc*+d-
+
+Postfix Notation: abc*+d-
+
+
+Prefix :
+It is same as postfix notation but first put operators and then put operands!
+
+Prefix notation of ((a + (b * c)) - d) : -+a*bcd
+
+
+
+
