@@ -7,6 +7,8 @@ typedef long double lld;
 # define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 # define endl '\n'
 
+// NHAY - A Needle in the Haystack
+// https://www.spoj.com/problems/NHAY/
 
 const int N = 1e6 + 123;
 
@@ -83,15 +85,19 @@ public:
 int main(){
     optimize();
     precompute();
-    string s = "abdcdefgh";
-    string t = "cde";
-    
-    Hash h1(s); // precomputing the hash prefix
-    Hash h2(t); // precomputing the hash prefix
-    if(h1.getHash(4,6) == h2.getHash()){
-        cout << "Both strings are equal!" << endl;
-    }else{
-        cout << "There exist an invisible bug in the code!" << endl;
+    int n;
+    while(cin >> n){
+        string needle, haystack;
+        cin >> needle >> haystack;
+        auto hs = Hash(needle).getHash();
+        Hash haystackHash(haystack);
+        
+        for(int i = 1; i + n - 1<= haystack.size(); i++){
+            if(haystackHash.getHash(i, i + n - 1) == hs){
+                cout << i - 1 << endl;
+            }
+        }
+        cout << endl;
     }
     
     return 0;
