@@ -70,6 +70,25 @@ public:
         postOrderTraversal(root -> right);
         cout << root -> val << " ";
     }
+
+    // Level - Order Traversal
+    // Traverse level by level. First it will print level - 0, then level - 1 and so on.
+    void levelOrderTraversal(Node* root){
+        queue<Node*> q;
+        q.push(root);
+        while(!q.empty()){
+            Node* currNode = q.front();
+            q.pop();
+            cout << currNode->val << " ";
+
+            if(currNode -> left != NULL){
+                q.push(currNode->left);
+            }
+            if(currNode -> right != NULL){
+                q.push(currNode->right);
+            }
+        }
+    }
 };
 
 int main(){
@@ -91,5 +110,9 @@ int main(){
     bt.postOrderTraversal(root);
     cout << endl;
     cout << "Post-order Traversal Successful" << endl;
+
+    bt.levelOrderTraversal(root);
+    cout << endl;
+    cout << "Level-order Traversal Successful" << endl;
     return 0;
 }
