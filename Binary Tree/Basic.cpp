@@ -89,6 +89,36 @@ public:
             }
         }
     }
+
+    // To print nodes on different lines we will use NULL as an indicator
+    // NULL will indicate two things
+    // 1. our current level is about to come to an end --> queue will not be empty
+    // 2. we are at the dead end of our tree --> queue will be empty
+    void differentLineLevelOrderTraversal(Node* root){
+        queue<Node*> q;
+        q.push(root);
+        q.push(NULL);
+
+        while(!q.empty()){
+            Node* currNode = q.front();
+            q.pop();
+            if(currNode == NULL){
+                if(!q.empty()){
+                    cout << endl;
+                    q.push(NULL);
+                }
+            }else{
+                cout << currNode -> val << " ";
+                if(currNode -> left != NULL){
+                    q.push(currNode -> left);
+                }
+                if(currNode -> right != NULL){
+                    q.push(currNode -> right);
+                }
+            }
+            
+        }
+    }
 };
 
 int main(){
@@ -114,5 +144,9 @@ int main(){
     bt.levelOrderTraversal(root);
     cout << endl;
     cout << "Level-order Traversal Successful" << endl;
+    
+    bt.differentLineLevelOrderTraversal(root);
+    cout << endl;
+    cout << "Line by Line Level-order Traversal Successful" << endl;
     return 0;
 }
