@@ -119,6 +119,26 @@ public:
             
         }
     }
+
+    int height(Node* root){
+        // Base Case
+        if(root == NULL){
+            return 0;
+        }
+        int leftHeight = height(root -> left);
+        int rightHeight = height(root -> right);
+        return (max(leftHeight, rightHeight) + 1); // maximum height on left or right side + root node
+    }
+
+    int countOfNodes(Node* root){
+        if(root == NULL){
+            return 0;
+        }
+
+        int leftCnt = countOfNodes(root -> left);
+        int rightCnt = countOfNodes(root -> right);
+        return (leftCnt + rightCnt + 1);
+    }
 };
 
 int main(){
@@ -148,5 +168,11 @@ int main(){
     bt.differentLineLevelOrderTraversal(root);
     cout << endl;
     cout << "Line by Line Level-order Traversal Successful" << endl;
+
+    cout << "Height of the tree : " << bt.height(root) << endl;
+    cout << "Successfully calculated the height of the tree." << endl;
+    
+    cout << "Total Number of Nodes of the tree : " << bt.countOfNodes(root) << endl;
+    cout << "Successfully calculated the total number of nodes of the tree." << endl;
     return 0;
 }
