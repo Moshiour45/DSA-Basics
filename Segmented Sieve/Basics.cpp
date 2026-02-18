@@ -42,6 +42,11 @@ vector<ll> segmentedSieve(ll l, ll r){
         for(ll i = start; i <= r; i += p){
             block[i - l] = false;
         }
+        
+        // Can be written in this way as well
+        // for(ll i = start - l; i < size; i += p){
+        //     block[i] = false;
+        // }
     }
     vector<ll> primesInSegment;
     for(ll i = l; i <= r; i++){
