@@ -11,7 +11,7 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 # define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 # define endl '\n'
 
-const ll N = 1e5;
+const ll N = 1e6;
 const ll MOD = 1e9 + 7;
 vector<ll> fact(N + 1);
 vector<ll> modInv(N + 1);
@@ -59,9 +59,19 @@ int main(){
     int q;
     cin >> q;
     while(q--){
-        ll n, r;
-        cin >> n >> r;
-        cout << nCr(n, r) << endl;
+       ll n, m, k;
+       cin >> n >> m >> k;
+       ll ans = 0;
+       for(int i = 0; i < k; i++){
+        ll x, y, p;
+        cin >> x >> y >> p;
+        ll numberOfWays = ((nCr(x + y - 2, x - 1)) * nCr(n + m - x - y, n - x)) % MOD;
+        ans = ((ans % MOD) + (p * numberOfWays) % MOD) % MOD;
+       }
+       cout << ans << endl;
+
     }
     return 0;
 }
+
+// Problem : K-Special Cells (https://www.hackerearth.com/practice/math/combinatorics/basics-of-combinatorics/practice-problems/algorithm/shinos-k-special-cells-c8538ebb/)
