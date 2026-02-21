@@ -30,3 +30,6 @@ int main(){
     }
     return 0;
 }
+
+
+// Problem: Marbles (https://www.spoj.com/problems/MARBLES/)
