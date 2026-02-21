@@ -1,115 +1,116 @@
-# 📚 Data Structures & Algorithms (DSA) Journey
+# DSA-Basics
 
-Welcome to my **Data Structures and Algorithms (DSA)** learning repository 🚀  
-This repository contains **everything I learn, practice, and implement** while studying DSA.
+A structured and continuously evolving repository focused on mastering **Data Structures and Algorithms (DSA)** through implementation, practice, and conceptual clarity.
 
-The goal of this repo is to:
-- Build strong **problem-solving skills**
-- Understand **core DSA concepts deeply**
-- Track my **progress over time**
-- Create a solid reference for future revision
+This repository serves as a personal knowledge base and progress tracker while strengthening problem-solving skills for competitive programming, technical interviews, and academic coursework.
 
 ---
 
-## 🧠 What This Repository Contains
+## 📌 Objectives
 
-This repository is continuously updated and includes:
-
-- 📌 **Theory notes** (concept explanations, definitions, insights)
-- 🧩 **Solved problems** (from different platforms)
-- 💻 **Code implementations**
-- 🔁 **Optimized solutions**
-- 📝 **Common patterns & tricks**
-- ⚠️ **Mistakes & lessons learned**
+- Build strong foundational understanding of core DSA concepts  
+- Implement data structures and algorithms from scratch  
+- Practice problems from various competitive programming platforms  
+- Improve analytical thinking and optimization skills  
+- Maintain clean, readable, and efficient code  
 
 ---
 
-## 🗂️ Topics Covered (Growing List)
+## 🧠 Topics Covered
 
-### 🔹 Basics
-- Time & Space Complexity
-- Recursion
-- Mathematical concepts (GCD, LCM, primes, etc.)
+### 1. Fundamentals
+- Time & Space Complexity Analysis
+- Recursion and Backtracking
+- Mathematical Foundations (GCD, LCM, Primes, Modular Arithmetic)
 
-### 🔹 Data Structures
-- Arrays
-- Strings
-- Linked Lists
-- Stacks
-- Queues
-- Deques
-- Trees
-- Binary Search Trees (BST)
-- Heaps
-- Hashing
-- Graphs
-- Sets & Maps
+### 2. Data Structures
+- Arrays and Strings  
+- Linked Lists  
+- Stack and Queue  
+- Deque  
+- Hashing (Map, Set)  
+- Trees (Binary Tree, BST)  
+- Graphs  
+- STL Usage and Custom Implementations  
 
-### 🔹 Algorithms
-- Searching Algorithms
-- Sorting Algorithms
-- Two Pointer Technique
-- Sliding Window
-- Greedy Algorithms
-- Binary Search on Answer
-- Divide & Conquer
-- Dynamic Programming
-- Graph Algorithms (BFS, DFS, Shortest Path, etc.)
+### 3. Algorithms
+- Sorting Algorithms  
+- Searching Algorithms  
+- Binary Search & Variations  
+- Two Pointers & Sliding Window  
+- Greedy Techniques  
+- Divide and Conquer  
+- Dynamic Programming  
+- Graph Algorithms (BFS, DFS, Shortest Path, etc.)  
 
 ---
 
-## 🧪 Problem Sources
+## 💻 Languages & Tools
 
-Problems are solved from:
-- Codeforces
-- LeetCode
-- AtCoder
-- HackerRank
-- CSES
-- University / Course assignments
+- **C++ (Primary Language)**
+- Standard Template Library (STL)
+- GNU Extensions (PBDS where applicable)
+- Visual Studio Code
 
 ---
 
-## 🛠️ Languages Used
+## 📚 Problem Sources
 
-- **C / C++** (primary)
-- STL (Standard Template Library)
-- Occasionally: Python / Java (for comparison or learning)
+Problems and implementations are inspired by:
 
----
-
-## 📈 Progress Tracking
-
-- Problems solved ✔️
-- Concepts revised 🔁
-- Weak areas identified ⚠️
-- Improvements documented 📊
-
-This repository reflects my **learning curve**, not just perfect solutions.
+- Codeforces  
+- LeetCode  
+- AtCoder  
+- CSES  
+- SPOJ  
+- Academic coursework  
 
 ---
 
-## 🔄 Repository Status
+## 📂 Repository Structure
 
-🚧 **Work in Progress**  
-I regularly update this repository as I learn new concepts and solve more problems.
+The repository is organized topic-wise to ensure clarity and easy navigation. Each folder typically contains:
 
----
-
-## 🤝 Contributions
-
-This is a **personal learning repository**, but:
-- Suggestions are welcome
-- Better approaches are appreciated
-- Discussions help learning!
+- Concept explanations (where applicable)
+- Implementation code
+- Practice problem solutions
+- Optimized approaches (when available)
 
 ---
 
-## ⭐ Final Note
+## 🎯 Approach
 
-> “DSA is not about memorizing solutions —  
-> it’s about learning how to think.”
+- Focus on understanding the **why** behind every algorithm  
+- Prioritize optimization and edge-case handling  
+- Write modular and reusable code  
+- Maintain consistency in formatting and structure  
 
-Thanks for visiting! 😊  
-Feel free to explore and learn along with me.
+---
 
+## 📈 Ongoing Development
+
+This repository is actively maintained and regularly updated as new concepts are learned and new problems are solved.
+
+Future additions may include:
+
+- Advanced Data Structures  
+- Advanced Dynamic Programming  
+- Graph Theory (Advanced topics)  
+- Interview-focused problem sets  
+
+---
+
+## 📌 Note
+
+This repository is primarily for learning and revision purposes.  
+Constructive feedback and suggestions for improvement are always welcome.
+
+---
+
+## 📄 License
+
+This project is open for educational use.
+
+---
+
+> “Strong fundamentals build strong engineers.”
