@@ -48,3 +48,5 @@ int main(){
     
     return 0;
 }
+
+// Codeforces: Road Optimization (https://codeforces.com/contest/1625/problem/C)
