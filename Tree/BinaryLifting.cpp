@@ -47,14 +47,23 @@ int main(){
     while(q--){
         int node, k;
         cin >> node >> k;
-        int bits = 0; // tracks bit position
-        while(k){
-            // tracking set bits
-            if(k & 1){
-                node = dp[node][bits]; // jumping from one node to another by power of twos
+
+        // int bits = 0; // tracks bit position
+        // while(k){
+        //     // tracking set bits
+        //     if(k & 1){
+        //         node = dp[node][bits]; // jumping from one node to another by power of twos
+        //     }
+        //     bits++;
+        //     k >>= 1; // shifting each bit by 1
+        // }
+
+        // checks all possible bits
+        for(int i = 16; i >= 0; i--){
+            // returns true if i-th bit is set
+            if((k >> i) & 1){
+                node = dp[node][i];
             }
-            bits++;
-            k >>= 1; // shifting each bit by 1
         }
         cout << node << endl;
     }
