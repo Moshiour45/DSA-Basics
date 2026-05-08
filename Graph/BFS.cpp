@@ -11,14 +11,22 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 # define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 # define endl '\n'
 
-void dfs(int node, vector<vector<int>>& adj, vector<bool> &visited){
-    visited[node] = true;
-    cout << node << " ";
-    for(auto e : adj[node]){
-        if(!visited[e]){
-            dfs(e, adj, visited);
+void bfs(int root, vector<vector<int>>& adj, vector<bool>& visited){
+    queue<int> q;
+    q.push(root);
+    visited[root] = true;
+    while(!q.empty()){
+        int node = q.front();
+        q.pop();
+        cout << node <<  " ";
+        for(auto e : adj[node]){
+            if(!visited[e]){
+                visited[e] = true;
+                q.push(e);
+            }
         }
     }
+    cout << endl;
 }
 
 int main(){
@@ -37,7 +45,7 @@ int main(){
     }   
 
     vector<bool> visited(n + 1, false);
-    dfs(1, adj, visited);
+    bfs(1, adj, visited);
 
     return 0;
 }
