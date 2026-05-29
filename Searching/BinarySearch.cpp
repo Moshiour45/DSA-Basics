@@ -11,7 +11,8 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 # define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 # define endl '\n'
 
-
+//Binary Search: An algorithm that performs searching in any array where the array elements are monotonic in 
+// in O(log n) time where n is the size of the array
 
 int main(){
     optimize();
