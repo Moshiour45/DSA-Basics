@@ -45,6 +45,6 @@ int main(){
     vector<int> level(n + 1);
 
     dfs(1, 0, adj, level);
-    // This is to verify Addition on AlgoVerse
+    
     return 0;
 }
