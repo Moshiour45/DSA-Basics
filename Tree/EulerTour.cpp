@@ -12,10 +12,12 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 # define endl '\n'
 
 
-vector<ll> flat;
-vector<int> first;
-vector<ll> level;
+vector<ll> flat; // flattend tree
+vector<int> first; // first occurence of every node in the flat array
+vector<ll> level; // stores height corresponding to each node
 int idx = 0;
+
+// Euler Tour
 void dfs(int node, int parent, vector<vector<ll>>& adj, int l = 0){
     if(first[node] == -1){
         first[node] = idx;
@@ -36,7 +38,7 @@ void dfs(int node, int parent, vector<vector<ll>>& adj, int l = 0){
 
 
 
-// Segment Tree
+// Segment Tree for our range query
 template<class Node, class Update>
 class SegTree{
     vector<Node> tree;
@@ -188,8 +190,10 @@ int main(){
     while(q--){
         ll l, r;
         cin >> l >> r;
+        // converting node to it's corresponding first occurence index in the flat array
         l = first[l];
         r = first[r];
+        // Making sure (l < r)
         if(l >= r){
             swap(l, r);
         }
