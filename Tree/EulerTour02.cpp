@@ -154,8 +154,10 @@ public:
 
 
 
-int main(){
-    optimize();
+
+
+// Time Complexity : O(n) + O(q log n)
+void subtreeQueries(){
     int n, q;
     cin >> n >> q;
 
@@ -177,10 +179,18 @@ int main(){
     dfs(1, 0, adj);
     
     // flat array storing values of each node
+    vector<bool> visited(n + 1, false); // Tracks the first occurrence of a node in the flat array
     vector<ll> flatValue;
+
     for(auto u : flat){
-        flatValue.push_back(nodeVal[u]);
+        if(!visited[u]){
+            flatValue.push_back(nodeVal[u]);
+            visited[u] = true;
+        }else{
+            flatValue.push_back(0); 
+        }
     }
+
 
     // Building Segment Tree
     SegTree<Node, Update> sgt(flatValue, flatValue.size());
@@ -192,16 +202,88 @@ int main(){
             cin >> s >> x;
             // point update
             sgt.makeUpdate(range[s].first, x);
-            sgt.makeUpdate(range[s].second, x);
+            
 
         }else{
             cin >> s;
-            cout << (sgt.makeQuery(range[s].first, range[s].second). val) / 2 << endl;
+            cout << (sgt.makeQuery(range[s].first, range[s].second). val) << endl;
         }
      }
     
     
+}
+
+
+
+// Time Complexity : O(n) + O(q log n)
+void pathQueries(){
+    int n, q;
+    cin >> n >> q;
+
+    // values stored in each node
+    vector<ll> nodeVal(n + 1);
+    for(int i = 1; i <= n; i++){
+        cin >> nodeVal[i];
+    }
+
+    vector<vector<ll>> adj(n + 1);
+    for(int i = 0; i < n - 1; i++){
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    range.resize(n + 1);
+    dfs(1, 0, adj);
+    
+    // flat array storing values of each node
+    vector<bool> visited(n + 1, false); // Tracks the first occurrence of a node in the flat array
+    vector<ll> flatValue;
+
+    for(auto u : flat){
+        if(!visited[u]){
+            flatValue.push_back(nodeVal[u]);
+            visited[u] = true;
+        }else{
+            flatValue.push_back(-nodeVal[u]); 
+        }
+    }
+
+
+    // Building Segment Tree
+    SegTree<Node, Update> sgt(flatValue, flatValue.size());
+    
+    while(q--){
+        int p, s, x;
+        cin >> p;
+        if(p == 1){
+            cin >> s >> x;
+            // point update
+            sgt.makeUpdate(range[s].first, x); // place +x at the first encounter
+            sgt.makeUpdate(range[s].second, -x); // place -x at the second encounter
+            
+
+        }else{
+            cin >> s;
+            // path from root node to node - x
+            cout << (sgt.makeQuery(0LL, range[s].first). val) << endl;
+        }
+     }
+    
+    
+}
+
+
+int main(){
+    optimize();
+    
+    // subtreeQueries();
+    pathQueries();
+
     return 0;
 }
 
+
 // Problem : Subtree Queries (https://cses.fi/problemset/task/1137/)
+// Problem : Path Queries (https://cses.fi/problemset/task/1138/)
