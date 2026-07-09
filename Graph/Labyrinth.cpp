@@ -20,7 +20,7 @@ bool isValid(int x, int y, vector<vector<char>>& grid){
     return((x >= 0 and x < n and y >= 0 and y < m) and grid[x][y] != '#');
 }
 
-// Standar BFS in the grid from A
+// Standard BFS in the grid from A
 void bfs(pair<int,int> root, vector<vector<char>>& grid, vector<vector<bool>>& visited, vector<vector<int>>& parent){
     queue<pair<int,int>> q;
     q.push(root);
