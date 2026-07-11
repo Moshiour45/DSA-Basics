@@ -60,7 +60,8 @@ private :
     //      1. lazy[index] = true  --> propageLazy() will call it for child nodes for propagation
     //      2. lazy[index] = false --> update() will call it for any new updates
     //
-    // Both prior updates and new updates(passed in the query) will be passed in as argument  
+    // Both prior updates and new updates(passed in the query) will be passed in as argument 
+    // Never Change this function 
     void applyUpdateToNode(int index, int start, int end, Update& u){
         // The node is not a leaf node
         if(start != end){
@@ -72,6 +73,7 @@ private :
     }
 
     // This is used to propagate updates from parent node to it's child nodes
+    // Never Change this function
     void propagateLazy(int index, int start, int end){
         if(lazy[index]){
             int mid = (start + end)/2;
