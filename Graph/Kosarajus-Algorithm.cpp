@@ -72,12 +72,13 @@ int main(){
         }
     }
 
-    for(auto v : scc){
-        for(auto u : v){
-            cout << u << " ";
-        }
-        cout << endl;
+    if(scc.size() == 1){
+        cout << "YES" << endl;
+    }else{
+        cout << "NO" << endl;
+        cout << scc[1][0] << " " << scc[0][0] << endl;
     }
     
     return 0;
 }
+// Problem : 	Flight Routes Check(https://cses.fi/problemset/task/1682/)
